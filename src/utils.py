@@ -612,7 +612,7 @@ def knn_monitor(
             leave=False,
             disable=hide_progress,
         ):
-            feature = net(data.cuda(non_blocking=True))
+            feature = net(data)
             feature = torch.flatten(feature, start_dim=1)
             feature = F.normalize(feature, dim=1)
             feature_bank.append(feature)

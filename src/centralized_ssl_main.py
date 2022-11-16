@@ -24,6 +24,7 @@ import torch.distributed as dist
 import torch.multiprocessing as mp
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.utils.data import RandomSampler
+from torch.cuda.amp import GradScaler
 
 
 if __name__ == "__main__":
@@ -40,7 +41,7 @@ if __name__ == "__main__":
             world_size=world_size,
             init_method=args.dist_url,
         )
-    device = "cuda"
+    device = "cpu"
     model_time = datetime.now().strftime("%d_%m_%Y_%H:%M:%S") + "_{}".format(
         str(os.getpid())
     )

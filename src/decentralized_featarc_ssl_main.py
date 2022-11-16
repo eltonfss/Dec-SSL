@@ -35,6 +35,7 @@ if __name__ == "__main__":
     if args.gpu:
         torch.cuda.set_device(int(args.gpu))
     device = "cuda" if args.gpu else "cpu"
+    print("Device", device)
 
     # load dataset and user groups
     # set_seed(args.seed)
